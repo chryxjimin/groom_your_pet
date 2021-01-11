@@ -1,0 +1,2 @@
+class Groomer < ApplicationRecord
+end

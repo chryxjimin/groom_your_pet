@@ -1,0 +1,2 @@
+class GroomersController < ApplicationController
+end
