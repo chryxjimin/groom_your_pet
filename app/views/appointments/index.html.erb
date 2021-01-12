@@ -1,11 +1,14 @@
 <h1>Appointments</h1>
-<%= week_calendar(number_of_weeks: 2) do |date| %>
-  <%= date %>
-<% end %>
-<% @appointments.each do |appointment| %>
-    <%= appointment.appointment_time %>
-    <%= appointment.vaccination_records %>
-    <%= appointment.haircut_type %>
-    <%= appointment.pet_id %>
-    <%= appointment.groomer_id %>
+<%= month_calendar(events: @appointments) do |date, appointments| %>
+  <%= date.day %>
+
+    <% @appointments.each do |appointment| %>
+        <div>
+            <%= appointment.appointment_time %>
+            <%= appointment.vaccination_records %>
+            <%= appointment.haircut_type %>
+            <%= appointment.pet_id %>
+            <%= appointment.groomer_id %>
+        </div>
+    <% end %>
 <% end %>

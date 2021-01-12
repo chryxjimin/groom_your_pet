@@ -5,6 +5,7 @@ class AppointmentsController < ApplicationController
     end
 
     def create
+        raise params.inspect
         @appointment = Appointment.create(appointment_params)
     end
 
