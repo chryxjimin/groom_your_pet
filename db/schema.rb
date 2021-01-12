@@ -18,6 +18,8 @@ ActiveRecord::Schema.define(version: 2021_01_11_195633) do
     t.string "haircut_type"
     t.integer "pet_id"
     t.integer "groomer_id"
+    t.datetime "start_time"
+    t.datetime "end_time"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
