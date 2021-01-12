@@ -14,6 +14,8 @@ ActiveRecord::Schema.define(version: 2021_01_11_195633) do
 
   create_table "appointments", force: :cascade do |t|
     t.datetime "appointment_time"
+    t.boolean "vaccination_records"
+    t.string "haircut_type"
     t.integer "pet_id"
     t.integer "groomer_id"
     t.datetime "created_at", precision: 6, null: false
