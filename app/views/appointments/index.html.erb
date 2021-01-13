@@ -6,7 +6,7 @@
         </div>
     <% end %>
 
-<%= link_to "Create a new appointment", new_appointment_path %>
+<%= link_to "Create a new appointment", new_groomer_appointment_path %>
 <%= month_calendar(events: @appointments) do |date, appointments| %>
 <%# <% binding.pry %>
   <%= date.day %>

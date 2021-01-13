@@ -8,7 +8,7 @@ class AppointmentsController < ApplicationController
         # raise params.inspect
         @appointment = Appointment.create(appointment_params)
         if @appointment.save
-            redirect_to appointment_path(@appointment)
+            redirect_to groomer_appointment_path(@appointment)
         else 
             render :new
         end
