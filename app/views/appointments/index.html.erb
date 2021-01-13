@@ -1,7 +1,14 @@
 <h1>Appointments</h1>
+
+    <% @appointments.each do |appointment| %>
+        <div>
+            <%= appointment.appointment_time %>
+        </div>
+    <% end %>
+
 <%= link_to "Create a new appointment", new_appointment_path %>
 <%= month_calendar(events: @appointments) do |date, appointments| %>
-<% binding.pry %>
+<%# <% binding.pry %>
   <%= date.day %>
 
     <% appointments.each do |appointment| %>
