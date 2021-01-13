@@ -5,6 +5,15 @@ class OwnersController < ApplicationController
 
     def create
         @owner = Owner.create(owner_params)
+        if @owner.save
+            redirect_to owner_path(@owner)
+        else
+            redirect_to new_owner_path
+        end
+    end
+
+    def show 
+        @owner = Owner.find(params[:id])
     end
 
     private
