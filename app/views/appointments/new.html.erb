@@ -5,8 +5,8 @@
   <%= f.check_box :vaccination_records %>
   <%= f.label :haircut_type %> 
   <%= f.text_field :haircut_type %>
-  <%= f.label :pet_id %> 
-  <%= f.number_field :pet_id %>
+  <%= f.label :pet_name %> 
+  <%= f.collection_select :pet_name, Pet.all, :name, :name %>
   <%= f.label :groomer_id %> 
   <%= f.number_field :groomer_id %>
   <%= f.submit %>
