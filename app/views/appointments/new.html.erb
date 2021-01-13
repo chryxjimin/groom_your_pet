@@ -1,7 +1,7 @@
-<%= form_for(@appointment) do |f| %>
+<%= form_for([@groomer, @appointment]) do |f| %>
   <%= f.label :appointment_time %>
   <%= f.datetime_field :appointment_time %></br>
-  <%= f.label :vaccination_records %>
+  <%= f.label :vaccination_records %s>
   <%= f.check_box :vaccination_records %></br>
   <%= f.label :haircut_type %> 
   <%= f.text_field :haircut_type %></br>

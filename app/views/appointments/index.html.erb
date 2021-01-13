@@ -5,15 +5,13 @@
             <%= appointment.appointment_time %>
         </div>
     <% end %>
-
-<%= link_to "Create a new appointment", new_groomer_appointment_path %>
-<%= month_calendar(events: @appointments) do |date, appointments| %>
-<%# <% binding.pry %>
-  <%= date.day %>
-
-    <% appointments.each do |appointment| %>
+<%= link_to "Create a new appointment", new_appointment_path %>
+    <%= month_calendar events: @appointments do |date, appointments| %>
+    <%= date.day %>
+    <% appointments.each do |app| %>
         <div>
-            <%= appointment.appointment_time %>
+            <%= app.appointment_time %>
         </div>
     <% end %>
+
 <% end %>
