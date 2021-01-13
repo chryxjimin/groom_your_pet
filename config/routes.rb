@@ -1,9 +1,13 @@
 Rails.application.routes.draw do
+
   resources :owners
   resources :pets
   resources :groomers
   resources :appointments
-  
+
+  get '/signup', to: 'sessions#new'
+  get '/login', to: 'sessions#login'
+  get '/', to: 'sessions#home'
   # resources :groomers do 
   #   resources :appointments
   # end
