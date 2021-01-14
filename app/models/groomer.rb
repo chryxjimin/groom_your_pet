@@ -4,4 +4,6 @@ class Groomer < ApplicationRecord
     has_many :pets, through: :appointments
     validates :username, presence: true
     validates :password, presence: true
+
+   
 end
