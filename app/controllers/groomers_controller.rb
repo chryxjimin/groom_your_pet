@@ -1,9 +1,16 @@
+require 'pry'
 class GroomersController < ApplicationController
-    
-    
+   
+    def new
+        @groomer = Groomer.new
+    end
+
     def show
         @groomer = Groomer.find(params[:id])
     end
+
+    # def index
+    # end
 
 
     private

@@ -16,7 +16,7 @@ class SessionsController < ApplicationController
             redirect_to groomer_path(@groomer)
         else 
             flash[:errors] = @groomer.errors.full_messages
-            render :'/groomers/new'
+            render :register
         end
     end
 
@@ -28,9 +28,10 @@ class SessionsController < ApplicationController
         @groomer = Groomer.find_by(username: params[:groomer][:username])
         if @groomer && @groomer.authenticate(strong_params[:password])
             session[:groomer_id] = @groomer.id
-            redirect_to appointments_path
+            render :success
         else
-            render :'/sessions/login'
+            @groomer = Groomer.new(username: strong_params[:username])
+            render :login
         end
     end
 
