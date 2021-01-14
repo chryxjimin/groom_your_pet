@@ -1,11 +1,18 @@
 class SessionsController < ApplicationController
 
-    def new
-       
+    def register
+        @groomer = Groomer.new
     end
 
-    def create
+    def registered
         @groomer = Groomer.create(strong_params)
+        if @groomer.save
+            session[:groomer_id] = @groomer.id
+            redirect_to groomer_path(@groomer)
+        else 
+            flash[:errors] = @groomer.errors.full_messages
+            render :'/groomers/new'
+        end
     end
  
     def home
@@ -19,6 +26,6 @@ class SessionsController < ApplicationController
 
     private
     def strong_params
-        params.require(:groomer).permit(:appointment_time, :vaccination_records, :haircut_type, :pet_id, :groomer_id)
+        params.require(:groomer).permit(:username, :password)
     end
 end
