@@ -5,8 +5,10 @@ Rails.application.routes.draw do
   resources :groomers
   resources :appointments
 
-  get '/signup', to: 'sessions#new'
-  get '/login', to: 'sessions#login'
+  get '/register', to: 'groomers#new'
+  post '/register', to: 'sessions#register'
+  get '/login', to: 'sessions#new'
+  post '/login', to: 'session#create'
   get '/', to: 'sessions#home'
   # resources :groomers do 
   #   resources :appointments
