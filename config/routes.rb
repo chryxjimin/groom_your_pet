@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   resources :appointments
 
   get '/register', to: 'groomers#new'
-  post '/register', to: 'sessions#register'
+  post '/register', to: 'groomers#create'
   get '/login', to: 'sessions#new'
   post '/login', to: 'session#create'
   get '/', to: 'sessions#home'

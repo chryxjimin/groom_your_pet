@@ -5,10 +5,20 @@ class GroomersController < ApplicationController
 
     def create
         @groomer = Groomer.create(groomer_params)
+        if @groomer.save
+            redirect_to groomer_path(@groomer)
+        else 
+            render :home
+        end
     end
+
+    def show
+        @groomer = Groomer.find(params[:id])
+    end
+
 
     private
         def groomer_params
-            params.require(:groomer).permit(:appointment_time, :vaccination_records, :haircut_type, :pet_id, :groomer_id)
+            params.require(:groomer).permit(:username, :password)
         end
 end
