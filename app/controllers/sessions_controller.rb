@@ -1,19 +1,20 @@
 class SessionsController < ApplicationController
 
-    def register
-
+    def new
+       
     end
 
     def create
         @groomer = Groomer.create(strong_params)
     end
-
-    def new
-       
-    end
  
     def home
 
+    end
+
+    def logout
+        session.clear
+        render :'/sessions/home'
     end
 
     private

@@ -6,14 +6,12 @@ class GroomersController < ApplicationController
     def create
         @groomer = Groomer.create(groomer_params)
         if @groomer.save
+            session[:groomer_id] = @groomer.id
             redirect_to groomer_path(@groomer)
         else 
-            render :home
+            flash[:errors] = @groomer.errors.full_messages
+            render :'/groomers/new'
         end
-    end
-
-    def show
-        @groomer = Groomer.find(params[:id])
     end
 
 
