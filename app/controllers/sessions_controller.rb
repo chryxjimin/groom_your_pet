@@ -1,4 +1,9 @@
+require 'pry'
 class SessionsController < ApplicationController
+
+
+    def home
+    end
 
     def register
         @groomer = Groomer.new
@@ -14,9 +19,19 @@ class SessionsController < ApplicationController
             render :'/groomers/new'
         end
     end
- 
-    def home
 
+    def login
+        @groomer = Groomer.new
+    end
+ 
+    def create
+        @groomer = Groomer.find_by(username: params[:groomer][:username])
+        if @groomer && @groomer.authenticate(strong_params[:password])
+            session[:groomer_id] = @groomer.id
+            redirect_to appointments_path
+        else
+            render :'/sessions/login'
+        end
     end
 
     def logout

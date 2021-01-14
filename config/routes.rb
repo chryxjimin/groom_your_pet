@@ -7,9 +7,9 @@ Rails.application.routes.draw do
 
   get '/register', to: 'sessions#register'
   post '/register', to: 'sessions#registered'
-  get '/login', to: 'sessions#new'
+  get '/login', to: 'sessions#login'
   post '/login', to: 'sessions#create'
-  post '/logout', to: 'sessions#destroy'
+  delete '/logout', to: 'sessions#logout'
   get '/', to: 'sessions#home'
   
   # resources :groomers do 
