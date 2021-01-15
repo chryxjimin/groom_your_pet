@@ -3,5 +3,6 @@
 <%= @appointment.haircut_type %>
 <%= @appointment.pet_id %>
 <%= @appointment.groomer_id %>
+<%= link_to 'Delete',url_for(action: :destroy, id: @appointment.id),method: :delete, data: {confirm: "Are you sure?"} %>
 
 
