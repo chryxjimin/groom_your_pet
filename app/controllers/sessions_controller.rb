@@ -11,13 +11,13 @@ class SessionsController < ApplicationController
 
     def registered
         # binding.pry
-        @groomer = Groomer.new(username: params[:groomer][:username], password: params[:groomer][:password])
+        @groomer = Groomer.create(strong_params)
         if @groomer.save
             session[:groomer_id] = @groomer.id
             redirect_to groomer_path(@groomer)
         else 
-            flash[:errors] = @groomer.errors.full_messages
-            render :register
+            flash[:error] = @groomer.errors.full_messages
+            redirect_to register_path
         end
     end
 
