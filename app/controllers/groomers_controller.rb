@@ -1,9 +1,9 @@
 require 'pry'
 class GroomersController < ApplicationController
    
-    def new
-        @groomer = Groomer.new
-    end
+    # def new
+    #     @groomer = Groomer.new(groomer_params)
+    # end
 
     def show
         @groomer = Groomer.find(params[:id])

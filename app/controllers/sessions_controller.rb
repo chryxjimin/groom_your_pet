@@ -10,7 +10,8 @@ class SessionsController < ApplicationController
     end
 
     def registered
-        @groomer = Groomer.create(strong_params)
+        # binding.pry
+        @groomer = Groomer.new(username: params[:groomer][:username], password: params[:groomer][:password])
         if @groomer.save
             session[:groomer_id] = @groomer.id
             redirect_to groomer_path(@groomer)

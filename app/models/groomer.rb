@@ -2,8 +2,8 @@ class Groomer < ApplicationRecord
     has_secure_password
     has_many :appointments
     has_many :pets, through: :appointments
-    validates :username, presence: true
-    validates :password, presence: true
+    validates :username, presence: true, uniqueness: true
+    validates :password_digest, presence: true, uniqueness: true
 
    
 end
