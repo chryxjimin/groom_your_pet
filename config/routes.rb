@@ -3,7 +3,8 @@ Rails.application.routes.draw do
   resources :owners
   resources :pets
   resources :groomers do
-    resources :appointments
+    resources :appointments, only: [:new, :create, :index, :show, :destroy]
+    get '/groomers/:id/appointments/new', to: 'appointments#new'
   end
 
   get '/register', to: 'sessions#register'
@@ -13,6 +14,7 @@ Rails.application.routes.draw do
   delete '/logout', to: 'sessions#logout'
   get '/', to: 'sessions#home'
   
-
+  #Omniauth
+  post '/auth/:provider/callback', to: 'sessions#create'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

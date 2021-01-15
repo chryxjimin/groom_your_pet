@@ -67,7 +67,10 @@ what urls do I need?
 many_to_many? pets have many appointments through pet groomers 
               groomers can have many pets through owners
 
-Nested routes - new, index or show
 Validations
-Authentification
-Bcrypt
+
+
+Need to add:
+telephone_field_tag, text_area_tag for forms
+create a partial
+create a link for the owners' emails to send promotions or whatever

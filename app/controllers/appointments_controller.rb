@@ -2,6 +2,7 @@ class AppointmentsController < ApplicationController
 
     def new
         @appointment = Appointment.new
+        # @groomer = Groomer.find(params[:id])
     end
 
     def create
@@ -10,7 +11,8 @@ class AppointmentsController < ApplicationController
         if @appointment.save
             redirect_to groomer_appointment_path(@appointment)
         else 
-            render :new
+            flash[:error] = @appointment.errors.full_messages
+            redirect_to new_groomer_appointment_path
         end
     end
 
@@ -29,7 +31,7 @@ class AppointmentsController < ApplicationController
     def update
         @appointment =Appointment.find(params[:id])
         @appointment.update(appointment_params)
-        redirect_to appointment_path(@appointment)
+        redirect_to groomer_appointment_path(@appointment)
     end
 
     def destroy
