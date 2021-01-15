@@ -1,15 +1,21 @@
 class AppointmentsController < ApplicationController
 
     def new
-        @appointment = Appointment.new
-        # @groomer = Groomer.find(params[:id])
+        # binding.pry
+        if current_groomer
+            @groomer = Groomer.find(params[:groomer_id])
+            @appointment = @groomer.appointments.build
+        else
+            redirect_to login_path
+        end
     end
 
     def create
         # raise params.inspect
         @appointment = Appointment.create(appointment_params)
         if @appointment.save
-            redirect_to groomer_appointment_path(@appointment)
+            @groomer = Groomer.find(params[:groomer_id])
+            redirect_to groomer_appointment_path(@groomer, @appointment)
         else 
             flash[:error] = @appointment.errors.full_messages
             redirect_to new_groomer_appointment_path

@@ -4,7 +4,6 @@ Rails.application.routes.draw do
   resources :pets
   resources :groomers do
     resources :appointments, only: [:new, :create, :index, :show, :destroy]
-    get '/groomers/:id/appointments/new', to: 'appointments#new'
   end
 
   get '/register', to: 'sessions#register'

@@ -74,3 +74,4 @@ Need to add:
 telephone_field_tag, text_area_tag for forms
 create a partial
 create a link for the owners' emails to send promotions or whatever
+scoping method -- where method
