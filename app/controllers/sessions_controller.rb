@@ -26,13 +26,20 @@ class SessionsController < ApplicationController
     end
  
     def create
-        @groomer = Groomer.find_by(username: params[:groomer][:username])
-        if @groomer && @groomer.authenticate(strong_params[:password])
+        if auth_hash != nil
+            @groomer = Groomer.find_or_create_from_auth_hash(auth_hash)
             session[:groomer_id] = @groomer.id
-            render :success
+            redirect_to groomer_appointments_path(@groomer)
         else
-            @groomer = Groomer.new(username: strong_params[:username])
-            render :login
+            @groomer = Groomer.find_by(username: params[:groomer][:username])
+
+            if @groomer && @groomer.authenticate(strong_params[:password])
+                session[:groomer_id] = @groomer.id
+                render :success
+            else
+                @groomer = Groomer.new(username: strong_params[:username])
+                render :login
+            end
         end
     end
 
@@ -44,5 +51,9 @@ class SessionsController < ApplicationController
     private
     def strong_params
         params.require(:groomer).permit(:username, :password)
+    end
+
+    def auth_hash
+        request.env['omniauth.auth']
     end
 end

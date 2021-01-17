@@ -14,6 +14,6 @@ Rails.application.routes.draw do
   get '/', to: 'sessions#home'
   
   #Omniauth
-  post '/auth/:provider/callback', to: 'sessions#create'
+  match '/auth/:provider/callback', to: 'sessions#create', via: [:get, :post]
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
