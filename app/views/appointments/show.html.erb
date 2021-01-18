@@ -1,8 +1,8 @@
-<%= @appointment.appointment_time %>
-<%= @appointment.vaccination_records %>
-<%= @appointment.haircut_type %>
-<%= @appointment.pet_id %>
-<%= @appointment.groomer_id %>
+<%= @appointment.appointment_time.strftime("%^a %^B %d %l:%M %p") %></br>
+<%= @appointment.vaccination_records %></br>
+<%= @appointment.haircut_type %></br>
+<%= @appointment.pet_name %></br>
+<%= @appointment.groomer_id %></br>
 <%= link_to 'Delete',url_for(action: :destroy, id: @appointment.id),method: :delete, data: {confirm: "Are you sure?"} %>
 
 
