@@ -1,16 +1,14 @@
 require 'pry'
 class GroomersController < ApplicationController
    
-    # def new
-    #     @groomer = Groomer.new(groomer_params)
-    # end
 
     def show
         @groomer = Groomer.find(params[:id])
     end
 
-    # def index
-    # end
+    def destroy
+        Groomer.find(params[:id]).delete
+    end
 
 
     private

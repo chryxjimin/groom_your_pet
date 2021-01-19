@@ -1,8 +1,8 @@
-<%= @appointment.appointment_time.strftime("%^a %^B %d %l:%M %p") %></br>
-<%= @appointment.vaccination_records %></br>
-<%= @appointment.haircut_type %></br>
-<%= @appointment.pet_name %></br>
-<%= @appointment.groomer_name %></br>
+Apppointment for <%= @appointment.pet_name %></br>
+At <%= @appointment.appointment_time.strftime("%^a %^B %d at %l:%M %p") %></br>
+Vaccination Records: <%= @appointment.vaccination_records %></br>
+Haircut: <%= @appointment.haircut_type %></br>
+Groomer: <%= @appointment.groomer_name %></br>
 
 <%= link_to 'Edit', edit_groomer_appointment_path %>
 <%= link_to 'Delete',url_for(action: :destroy, id: @appointment.id),method: :delete, data: {confirm: "Are you sure?"} %>

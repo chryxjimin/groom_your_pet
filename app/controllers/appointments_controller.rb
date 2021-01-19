@@ -35,7 +35,7 @@ class AppointmentsController < ApplicationController
 
     def edit
         @groomer = Groomer.find(params[:groomer_id])
-        if @groomer == current_groomer
+        if logged_in?
             @appointment = Appointment.find(params[:id])
         end
     end

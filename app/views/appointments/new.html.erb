@@ -8,6 +8,6 @@
   <%= f.label :pet_name %> 
   <%= f.collection_select :pet_name, Pet.all, :name, :name %></br>
   <%= f.label :groomer_name %> 
-  <%= f.number_field :groomer_name %></br>
+  <%= f.collection_select :groomer_name, Groomer.all, :username, :username %></br>
   <%= f.submit %>
 <% end %>
