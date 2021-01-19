@@ -7,7 +7,7 @@
   <%= f.text_field :haircut_type %></br>
   <%= f.label :pet_name %> 
   <%= f.collection_select :pet_name, Pet.all, :name, :name %></br>
-  <%= f.label :groomer_id %> 
-  <%= f.number_field :groomer_id %></br>
+  <%= f.label :groomer_name %> 
+  <%= f.collection_select :groomer_name, Groomer.all, :username, :username %></br>
   <%= f.submit 'Edit Form' %>
 <% end %>
