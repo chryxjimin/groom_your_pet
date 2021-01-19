@@ -34,7 +34,10 @@ class AppointmentsController < ApplicationController
     end
 
     def edit
-        @appointment = Appointment.find(params[:id])
+        @groomer = Groomer.find(params[:groomer_id])
+        if @groomer == current_groomer
+            @appointment = Appointment.find(params[:id])
+        end
     end
 
     def update
