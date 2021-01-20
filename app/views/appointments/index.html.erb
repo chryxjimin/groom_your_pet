@@ -1,5 +1,5 @@
 <h1>Appointments</h1>
-
+<%= link_to "Create a new customer", new_owner_path %></br>
 <%= link_to "Create a new appointment", new_groomer_appointment_path %>
     <%= month_calendar events: @appointments do |date, appointments| %>
     <%= date.day %>
