@@ -27,7 +27,6 @@ class AppointmentsController < ApplicationController
     end
 
     def index
-        # @groomer = Groomer.find(params[:groomer_id])
         if current_groomer
             @appointments = Appointment.all
         else
@@ -36,7 +35,6 @@ class AppointmentsController < ApplicationController
     end
 
     def edit
-        # @groomer = Groomer.find(params[:groomer_id])
         if current_groomer
             @appointment = Appointment.find(params[:id])
         else

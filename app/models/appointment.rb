@@ -10,7 +10,7 @@ class Appointment < ApplicationRecord
         self.pet ? self.pet.name : nil
     end
 
-    def groomer_name=(name)
+    def groomer_name=(username)
         self.groomer = Groomer.find_or_create_by(username: username)
     end
 

@@ -11,12 +11,13 @@
 
   <body>
     <%= yield %>
-    <%# <%= link_to "Home", root_path %>
     <% if logged_in? %>
-      <%= link_to "Logout", logout_path, method: 'delete' %>
+      <%= link_to "Appointments", groomer_appointments_path(current_groomer) %></br>
+      <%= link_to "Logout", logout_path, method: 'delete' %></br>
     <% else %>
-      <%= link_to "Register", register_path %>
-      <%= link_to "Login", login_path %>
+      <%= link_to "Register", register_path %></br>
+      <%= link_to "Sign Up With Github", '/auth/github' %></br>
+      <%= link_to "Login", login_path %></br>
     <% end %>
 
     <div>

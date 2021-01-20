@@ -73,8 +73,7 @@ Validations
 Need to add:
 telephone_field_tag, text_area_tag for forms
 create a partial
-create a link for the owners' emails to send promotions or whatever
+create a link for the owners' emails
 scoping method -- where method
 omniauth setup -- check if it works
-get the edit method to update for collection_select method in the forms for appointments
 review namespaced routes lesson 
