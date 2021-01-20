@@ -9,5 +9,6 @@
   <%= f.collection_select :pet_name, Pet.all, :name, :name %></br>
   <%= f.label :groomer_name %> 
   <%= f.collection_select :groomer_name, Groomer.all, :username, :username %></br>
-  <%= f.submit 'Edit Form' %>
+  <%# <%= f.hidden_field :groomer_id %> %>
+  <%= f.submit 'Update Form' %>
 <% end %>
