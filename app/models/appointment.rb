@@ -11,7 +11,7 @@ class Appointment < ApplicationRecord
     end
 
     def groomer_name=(name)
-        self.groomer = Groomer.find_or_create_by(name: username)
+        self.groomer = Groomer.find_or_create_by(username: username)
     end
 
     def groomer_name

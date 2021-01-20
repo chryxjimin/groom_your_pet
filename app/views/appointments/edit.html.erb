@@ -1,14 +1,5 @@
+<h1>Edit an existing appointment</h1>
 <%= form_for([@groomer, @appointment]) do |f| %>
-  <%= f.label :appointment_time %>
-  <%= f.datetime_field :appointment_time %></br>
-  <%= f.label :vaccination_records %>
-  <%= f.check_box :vaccination_records %></br>
-  <%= f.label :haircut_type %> 
-  <%= f.text_field :haircut_type %></br>
-  <%= f.label :pet_name %> 
-  <%= f.collection_select :pet_name, Pet.all, :name, :name %></br>
-  <%= f.label :groomer_name %> 
-  <%= f.collection_select :groomer_name, Groomer.all, :username, :username %></br>
-  <%# <%= f.hidden_field :groomer_id %> %>
-  <%= f.submit 'Update Form' %>
+  <%= render 'appointment' %>
 <% end %>
+

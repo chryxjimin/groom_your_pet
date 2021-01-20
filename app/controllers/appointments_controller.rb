@@ -58,6 +58,6 @@ class AppointmentsController < ApplicationController
 
     private
         def appointment_params
-            params.require(:appointment).permit(:appointment_time, :vaccination_records, :haircut_type, :pet_name, :groomer_id)
+            params.require(:appointment).permit(:appointment_time, :vaccination_records, :haircut_type, :pet_name, :groomer_name, :groomer_id)
         end
 end
