@@ -16,6 +16,10 @@ class OwnersController < ApplicationController
         @owner = Owner.find(params[:id])
     end
 
+    def index
+        @owners = Owner.all.reverse 
+    end
+
     private
         def owner_params
             params.require(:owner).permit(:name, :email, :phone_number)
