@@ -4,9 +4,10 @@ Rails.application.routes.draw do
     resources :user_permissions
   end
 
-  resources :owners
+  resources :owners do
+    resources :pets
+  end
 
-  resources :pets
   
   resources :groomers do
     resources :appointments, only: [:new, :create, :index, :show, :edit, :update, :destroy]

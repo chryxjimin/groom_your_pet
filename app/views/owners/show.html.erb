@@ -7,4 +7,4 @@ Phone Number: <%= @owner.phone_number %></br>
 <% end %>
 </br>
 <%= link_to "Edit Owner", edit_owner_path(@owner) %></br>
-<%= link_to "Create new pet", new_pet_path %></br>
+<%= link_to "Create new pet", new_owner_pet_path(@owner) %></br>

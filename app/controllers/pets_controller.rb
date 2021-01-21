@@ -1,14 +1,21 @@
 class PetsController < ApplicationController
     def new
-        @pet = Pet.new
+        if current_groomer
+            @owner = Owner.find(params[:owner_id])
+            @pet = @owner.pets.build
+        else
+            redirect_to owner_pets_path
+        end
     end
 
     def create
+        # binding.pry
         @pet = Pet.create(pet_params)
         if @pet.save
-            redirect_to pet_path(@pet)
+            @owner = Owner.find(params[:owner_id])
+            redirect_to owner_pet_path(@owner, @pet)
         else
-            redirect_to new_pet_path
+            redirect_to new_owner_pet_path, alert: "Pet was not saved"
         end
     end
 
@@ -24,20 +31,20 @@ class PetsController < ApplicationController
         if current_groomer
             @pet = Pet.find(params[:id])
         else
-            redirect_to pet_path
+            redirect_to owner_pets_path
         end
     end
 
     def update
         @pet = Pet.find(params[:id])
         @pet.update(pet_params)
-        redirect_to pet_path(@pet)
+        redirect_to owner_pet_path(@owner, @pet)
     end
 
     def destroy
         @pet = Pet.find(params[:id])
         @pet.destroy
-        redirect_to pets_path
+        redirect_to owner_pets_path
     end
 
     private
