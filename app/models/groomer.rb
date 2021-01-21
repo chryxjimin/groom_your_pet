@@ -3,6 +3,7 @@ class Groomer < ApplicationRecord
     has_many :appointments
     has_many :pets, through: :appointments
     validates :username, presence: true, uniqueness: true
+    validates_length_of :username, within: 6..12
     validates :password_digest, presence: true, uniqueness: true
 
     def self.find_or_create_from_auth_hash(auth_hash)

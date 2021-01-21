@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
 
+  
   resources :owners
+
   resources :pets
+  
   resources :groomers do
     resources :appointments, only: [:new, :create, :index, :show, :edit, :update, :destroy]
   end
