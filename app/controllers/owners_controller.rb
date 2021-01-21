@@ -19,9 +19,6 @@ class OwnersController < ApplicationController
     def show 
         @owner = Owner.find(params[:id])
         @pets = @owner.pets
-        # if @owner.id == @pet.owner_id
-        #     @pet
-        # end
     end
 
     def edit

@@ -1,11 +1,9 @@
 class PetsController < ApplicationController
+
+    before_action :set_owner, only: [:new, :show, :index, :edit, :update, :destroy]
+
     def new
-        if current_groomer
-            @owner = Owner.find(params[:owner_id])
-            @pet = @owner.pets.build
-        else
-            redirect_to owner_pets_path
-        end
+        @pet = Pet.new
     end
 
     def create
@@ -15,7 +13,8 @@ class PetsController < ApplicationController
             @owner = Owner.find(params[:owner_id])
             redirect_to owner_pet_path(@owner, @pet)
         else
-            redirect_to new_owner_pet_path, alert: "Pet was not saved"
+            flash[:error] = @pet.errors.full_messages
+            redirect_to new_owner_pet_path
         end
     end
 
@@ -28,11 +27,7 @@ class PetsController < ApplicationController
     end
 
     def edit
-        if current_groomer
-            @pet = Pet.find(params[:id])
-        else
-            redirect_to owner_pets_path
-        end
+        @pet = Pet.find(params[:id])
     end
 
     def update
@@ -50,5 +45,9 @@ class PetsController < ApplicationController
     private
         def pet_params
             params.require(:pet).permit(:name, :age, :breed, :weight, :owner_id)
+        end
+
+        def set_owner
+            @owner = Owner.find(params[:owner_id])
         end
 end

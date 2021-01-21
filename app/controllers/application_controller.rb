@@ -9,4 +9,8 @@ class ApplicationController < ActionController::Base
         # binding.pry
         !!current_groomer
     end
+
+    def current_owner
+        @owner ||= owner.find_by(id: session[:owner_id]) if session[:owner_id]
+    end
 end

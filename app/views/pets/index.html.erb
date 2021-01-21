@@ -1,4 +1,4 @@
 <% @pets.each do |pet| %>
-    <%= link_to pet.name , owner_pet_path(pet) %></br>
+    <%= link_to pet.name , owner_pet_path(@owner, pet) %></br>
 <% end %>
 </br>
