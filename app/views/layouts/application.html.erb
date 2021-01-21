@@ -12,7 +12,7 @@
   <body>
     <%= yield %>
     <% if logged_in? %>
-      <%= link_to "Appointments", groomer_appointments_path(current_groomer) %></br>
+      <%= link_to "Calendar", groomer_appointments_path(current_groomer) %></br>
       <%= link_to "Logout", logout_path, method: 'delete' %></br>
     <% else %>
       <%= link_to "Register", register_path %></br>

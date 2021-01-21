@@ -2,4 +2,8 @@
 Email: <%= @owner.email %></br>
 Phone Number: <%= @owner.phone_number %></br>
 
-<%= link_to "Create new pet", new_pet_path %>
+<% @owner.pets.each do |pet| %>
+    <%= link_to pet.name, pet_path(pet) %></br>
+<% end %>
+
+<%= link_to "Create new pet", new_pet_path %></br>

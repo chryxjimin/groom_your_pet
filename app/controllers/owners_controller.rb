@@ -14,6 +14,10 @@ class OwnersController < ApplicationController
 
     def show 
         @owner = Owner.find(params[:id])
+        @pet = Pet.new
+        if @owner.id == @pet.owner_id
+            @pet
+        end
     end
 
     def index
