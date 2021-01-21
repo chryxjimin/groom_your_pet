@@ -28,7 +28,7 @@ class AppointmentsController < ApplicationController
 
     def index
         if current_groomer
-            @appointments = current_groomer.appointments.all
+            @appointments = Appointment.all
         else
             redirect_to login_path
         end
@@ -36,14 +36,14 @@ class AppointmentsController < ApplicationController
 
     def edit
         if current_groomer
-            @appointment = current_groomer.appointments.find(params[:id])
+            @appointment = Appointment.find(params[:id])
         else
             redirect_to login_path
         end
     end
 
     def update
-        @appointment = current_groomer.appointments.find(params[:id])
+        @appointment =Appointment.find(params[:id])
         @appointment.update(appointment_params)
         redirect_to groomer_appointment_path(@appointment)
     end

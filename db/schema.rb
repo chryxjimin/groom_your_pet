@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_11_195633) do
+ActiveRecord::Schema.define(version: 2021_01_21_163248) do
 
   create_table "appointments", force: :cascade do |t|
     t.datetime "appointment_time"
@@ -47,6 +47,12 @@ ActiveRecord::Schema.define(version: 2021_01_11_195633) do
     t.integer "owner_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "user_permissions", force: :cascade do |t|
+    t.boolean "allow_create_owners"
+    t.boolean "allow_create_pets"
+    t.boolean "allow_create_appointments"
   end
 
 end

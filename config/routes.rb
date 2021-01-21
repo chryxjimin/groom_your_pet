@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
 
-  
+  namespace :admin do
+    resources :user_permissions
+  end
+
   resources :owners
 
   resources :pets

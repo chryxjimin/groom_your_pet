@@ -21,7 +21,8 @@ class OwnersController < ApplicationController
     end
 
     def index
-        @owners = Owner.all.reverse 
+        # binding.pry
+        @owners = Owner.all.sort_by { |owner| owner.name } 
     end
 
     private
