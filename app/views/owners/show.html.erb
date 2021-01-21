@@ -2,7 +2,7 @@
 Email: <%= @owner.email %></br>
 Phone Number: <%= @owner.phone_number %></br>
 
-<% @owner.pets.each do |pet| %>
+<% @pets.each do |pet| %>
     <%= link_to pet.name, pet_path(pet) %></br>
 <% end %>
 </br>

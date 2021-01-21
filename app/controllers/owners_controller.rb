@@ -12,12 +12,16 @@ class OwnersController < ApplicationController
         end
     end
 
+    def index
+        @owners = Owner.all.sort_by { |owner| owner.name } 
+    end
+
     def show 
         @owner = Owner.find(params[:id])
-        @pet = Pet.new
-        if @owner.id == @pet.owner_id
-            @pet
-        end
+        @pets = @owner.pets
+        # if @owner.id == @pet.owner_id
+        #     @pet
+        # end
     end
 
     def edit
@@ -34,12 +38,6 @@ class OwnersController < ApplicationController
         redirect_to owner_path(@owner)
     end
 
-
-
-    def index
-        # binding.pry
-        @owners = Owner.all.sort_by { |owner| owner.name } 
-    end
 
     private
         def owner_params

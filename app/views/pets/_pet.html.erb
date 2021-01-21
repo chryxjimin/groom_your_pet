@@ -1,0 +1,11 @@
+<%= form_for(@pet) do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %></br>
+  <%= f.label :age %>
+  <%= f.number_field :age %></br>
+  <%= f.label :breed %>
+  <%= f.text_field :breed %></br>
+  <%= f.label :weight %>
+  <%= f.number_field :weight %></br>
+  <%= f.submit %>
+<% end %>
