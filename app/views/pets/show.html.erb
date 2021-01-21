@@ -4,4 +4,5 @@ Age: <%= @pet.age %></br>
 Breed: <%= @pet.breed %></br>
 Weight: <%= @pet.weight %></br>
 
+<%= link_to "Edit Pet", edit_pet_path(@pet) %></br>
 <%= link_to "Create a new appointment", new_groomer_appointment_path(current_groomer) %>
