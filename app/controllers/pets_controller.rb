@@ -5,6 +5,11 @@ class PetsController < ApplicationController
 
     def create
         @pet = Pet.create(pet_params)
+        if @pet.save
+            redirect_to pet_path(@pet)
+        else
+            redirect_to new_pet_path
+        end
     end
 
     def show
@@ -12,7 +17,7 @@ class PetsController < ApplicationController
     end
 
     def index
-        @pets = Pet.all.reverse 
+        @pets = Pet.all.sort_by {|pet| pet.name }
     end
 
     private

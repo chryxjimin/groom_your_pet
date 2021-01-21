@@ -20,6 +20,22 @@ class OwnersController < ApplicationController
         end
     end
 
+    def edit
+        if current_groomer
+            @owner = Owner.find(params[:id])
+        else
+            redirect_to login_path
+        end
+    end
+
+    def update
+        @owner = Owner.find(params[:id])
+        @owner.update(owner_params)
+        redirect_to owner_path(@owner)
+    end
+
+
+
     def index
         # binding.pry
         @owners = Owner.all.sort_by { |owner| owner.name } 
