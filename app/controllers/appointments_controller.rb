@@ -24,11 +24,11 @@ class AppointmentsController < ApplicationController
 
     def show
         @appointment = Appointment.find(params[:id])
+        @owner = @appointment.pet.owner
     end
 
     def index
-        @groomer = Groomer.find(params[:groomer_id])
-        if logged_in? && current_groomer.id == @groomer.id
+        if current_groomer
             @appointments = Appointment.all
         else
             redirect_to login_path

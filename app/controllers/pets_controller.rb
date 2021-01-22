@@ -27,6 +27,7 @@ class PetsController < ApplicationController
     end
 
     def edit
+        # binding.pry
         @pet = Pet.find(params[:id])
     end
 

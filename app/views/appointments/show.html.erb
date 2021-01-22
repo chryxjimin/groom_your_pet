@@ -2,9 +2,10 @@ Apppointment for <%= @appointment.pet_name %></br>
 At <%= @appointment.appointment_time.strftime("%^a %^B %d at %l:%M %p") %></br>
 Vaccination Records: <%= @appointment.vaccination_records %></br>
 Haircut: <%= @appointment.haircut_type %></br>
-Groomer: <%= @appointment.groomer_name %></br>
-
-<%= link_to 'Edit', edit_groomer_appointment_path %>
+Appointment made by: <%= @appointment.groomer_name %></br>
+</br>
+<%= link_to @owner.name, owner_path(@owner) %></br>
+<%= link_to 'Edit', edit_groomer_appointment_path %></br>
 <%= link_to 'Delete',url_for(action: :destroy, id: @appointment.id),method: :delete, data: {confirm: "Are you sure?"} %>
 
 

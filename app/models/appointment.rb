@@ -1,6 +1,7 @@
 class Appointment < ApplicationRecord
     belongs_to :pet
     belongs_to :groomer
+    # belongs_to :owner
 
     def pet_name=(name)
         self.pet = Pet.find_or_create_by(name: name)
@@ -18,13 +19,13 @@ class Appointment < ApplicationRecord
         self.groomer ? self.groomer.username : nil
     end
 
-    def owner_name=(name)
-        self.pet.owner = Pet.owner.find_or_create_by(name: name)
-    end
+    # def owner_name=(name)
+    #     self.owner = Owner.find_or_create_by(name: name)
+    # end
 
-    def owner_name
-        self.pet.owner ? self.pet.owner.name : nil
-    end
+    # def owner_name
+    #     self.owner ? self.owner.name : nil
+    # end
 
 
     def start_time
