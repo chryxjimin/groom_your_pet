@@ -27,7 +27,8 @@ class AppointmentsController < ApplicationController
     end
 
     def index
-        if current_groomer
+        @groomer = Groomer.find(params[:groomer_id])
+        if logged_in? && current_groomer.id == @groomer.id
             @appointments = Appointment.all
         else
             redirect_to login_path

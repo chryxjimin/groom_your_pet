@@ -18,6 +18,15 @@ class Appointment < ApplicationRecord
         self.groomer ? self.groomer.username : nil
     end
 
+    def owner_name=(name)
+        self.pet.owner = Pet.owner.find_or_create_by(name: name)
+    end
+
+    def owner_name
+        self.pet.owner ? self.pet.owner.name : nil
+    end
+
+
     def start_time
         self.appointment_time ##Where 'start' is a attribute of type 'Date' accessible through MyModel's relationship
     end

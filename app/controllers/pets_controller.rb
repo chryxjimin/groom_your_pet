@@ -1,6 +1,6 @@
 class PetsController < ApplicationController
 
-    before_action :set_owner, only: [:new, :show, :index, :edit, :update, :destroy]
+    before_action :set_owner, only: [:new, :create, :show, :index, :edit, :update, :destroy]
 
     def new
         @pet = Pet.new
@@ -8,7 +8,7 @@ class PetsController < ApplicationController
 
     def create
         # binding.pry
-        @pet = Pet.create(pet_params)
+        @pet = @owner.pets.build(pet_params)
         if @pet.save
             @owner = Owner.find(params[:owner_id])
             redirect_to owner_pet_path(@owner, @pet)
