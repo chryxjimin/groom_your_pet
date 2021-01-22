@@ -1,7 +1,7 @@
 class Appointment < ApplicationRecord
     belongs_to :pet
     belongs_to :groomer
-    # belongs_to :owner
+    
 
     def pet_name=(name)
         self.pet = Pet.find_or_create_by(name: name)
