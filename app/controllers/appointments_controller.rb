@@ -35,10 +35,10 @@ class AppointmentsController < ApplicationController
         end
     end
 
-    def todays_appointments
-        @appointments = Appointment.all.from_today
-        binding.pry
-    end
+    # def todays_appointments
+    #     @appointments = Appointment.all.from_today
+    #     binding.pry
+    # end
 
     def edit
         if current_groomer
