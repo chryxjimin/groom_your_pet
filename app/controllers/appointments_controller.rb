@@ -29,7 +29,8 @@ class AppointmentsController < ApplicationController
 
     def index
         if current_groomer
-            @appointments = Appointment.all
+            # @appointments = Appointment.all
+            @appointments = Appointment.all.sort_by {|app| app.time}
         else
             redirect_to login_path
         end

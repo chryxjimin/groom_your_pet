@@ -20,7 +20,7 @@ class Appointment < ApplicationRecord
     end
 
     def self.from_today
-        where("date =?", Time.zone.today.beginning_of_day)
+        where("date =?", Time.zone.today.beginning_of_day).sort_by {|app| app.time}
     end
 
 
