@@ -11,13 +11,15 @@ class AppointmentsController < ApplicationController
     end
 
     def create
+        @groomer = Groomer.find(params[:groomer_id])
+        @appointment = Appointment.new(appointment_params)
         # binding.pry
-        @appointment = Appointment.create(appointment_params)
-        if @appointment.save
+        if current_groomer.id == @groomer.id
+            @appointment.save
             @groomer = Groomer.find(params[:groomer_id])
             redirect_to groomer_appointment_path(@groomer, @appointment)
         else 
-            flash[:error] = @appointment.errors.full_messages
+            flash[:error] = "Error. Please try again."
             redirect_to new_groomer_appointment_path
         end
     end
@@ -29,7 +31,7 @@ class AppointmentsController < ApplicationController
 
     def index
         if current_groomer
-            # @appointments = Appointment.all
+            @groomer = Groomer.find(params[:groomer_id])
             @appointments = Appointment.all.sort_by {|app| app.time}
         else
             redirect_to login_path
