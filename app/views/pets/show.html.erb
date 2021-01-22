@@ -6,5 +6,5 @@ Weight: <%= @pet.weight %></br>
 </br>
 
 <%= link_to 'Delete',url_for(action: :destroy, id: @pet.id),method: :delete, data: {confirm: "Are you sure?"} %></br>
-<%= link_to "Edit Pet", edit_owner_pet_path(@pet) %></br>
+<%= link_to "Edit Pet", edit_owner_pet_path(@owner, @pet) %></br>
 <%= link_to "Create a new appointment", new_groomer_appointment_path(current_groomer) %>

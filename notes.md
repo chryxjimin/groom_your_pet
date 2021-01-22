@@ -73,7 +73,5 @@ Validations
 Need to add:
 edit the weight select to not have negative
 fix the groomers controller to not allow the user to change the groomer id in the URL
-create a link for the owners' emails
 scoping method -- where method
 omniauth setup -- check if it works
-review namespaced routes lesson 

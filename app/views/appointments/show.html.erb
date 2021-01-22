@@ -1,5 +1,6 @@
 Apppointment for <%= @appointment.pet_name %></br>
-At <%= @appointment.appointment_time.strftime("%^a %^B %d at %l:%M %p") %></br>
+On <%= @appointment.date.strftime("%^a %^B %d") %></br>
+At <%= @appointment.time.strftime("%l:%M %p") %></br>
 Vaccination Records: <%= @appointment.vaccination_records %></br>
 Haircut: <%= @appointment.haircut_type %></br>
 Appointment made by: <%= @appointment.groomer_name %></br>

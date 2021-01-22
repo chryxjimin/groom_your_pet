@@ -1,13 +1,15 @@
 <%= form_for([@groomer, @appointment]) do |f| %>
-  <%= f.label :appointment_time %>
-  <%= f.datetime_field :appointment_time %></br>
+  <%= f.label :date %>
+  <%= f.date_field :date %></br>
+  <%= f.label :time %>
+  <%= f.time_field :time %></br>
   <%= f.label :vaccination_records %>
   <%= f.check_box :vaccination_records %></br>
   <%= f.label :haircut_type %> 
   <%= f.text_field :haircut_type %></br>
   <%= f.label :pet_name %> 
   <%= f.collection_select :pet_name, Pet.all, :name, :name %></br>
-  <%# <%= f.label :owner_name %> 
-  <%# <%= f.collection_select :owner_name, Owner.all, :name, :name %></br>
+  <%= f.label :groomer_name %> 
+  <%= f.text_field :groomer_name %></br>
   <%= f.submit %>
 <% end %>

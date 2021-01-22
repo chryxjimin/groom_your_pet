@@ -11,7 +11,7 @@ class AppointmentsController < ApplicationController
     end
 
     def create
-        # raise params.inspect
+        # binding.pry
         @appointment = Appointment.create(appointment_params)
         if @appointment.save
             @groomer = Groomer.find(params[:groomer_id])
@@ -33,6 +33,11 @@ class AppointmentsController < ApplicationController
         else
             redirect_to login_path
         end
+    end
+
+    def todays_appointments
+        @appointments = Appointment.all.from_today
+        binding.pry
     end
 
     def edit
@@ -57,6 +62,6 @@ class AppointmentsController < ApplicationController
 
     private
         def appointment_params
-            params.require(:appointment).permit(:appointment_time, :vaccination_records, :haircut_type, :pet_name, :groomer_name, :groomer_id)
+            params.require(:appointment).permit(:time, :date, :vaccination_records, :haircut_type, :pet_name, :groomer_name, :groomer_id)
         end
 end

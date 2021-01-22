@@ -19,17 +19,13 @@ class Appointment < ApplicationRecord
         self.groomer ? self.groomer.username : nil
     end
 
-    # def owner_name=(name)
-    #     self.owner = Owner.find_or_create_by(name: name)
-    # end
-
-    # def owner_name
-    #     self.owner ? self.owner.name : nil
-    # end
+    def self.from_today
+        where("date =?", Time.zone.today.beginning_of_day)
+    end
 
 
     def start_time
-        self.appointment_time ##Where 'start' is a attribute of type 'Date' accessible through MyModel's relationship
+        self.time ##Where 'start' is a attribute of type 'Date' accessible through MyModel's relationship
     end
 
 

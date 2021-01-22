@@ -7,7 +7,7 @@
     <%= date.day %>
     <% appointments.each do |app| %>
         <div>
-            <%= link_to app.appointment_time.strftime("%l:%M %p"), groomer_appointment_path(@groomer, app) %>
+            <%= link_to app.time.strftime("%l:%M %p"), groomer_appointment_path(@groomer, app) %>
         </div>
     <% end %>
 
