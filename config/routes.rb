@@ -1,13 +1,9 @@
 Rails.application.routes.draw do
 
-  namespace :admin do
-    resources :user_permissions
-  end
 
   resources :owners do
     resources :pets
   end
-
   
   resources :groomers do
     resources :appointments, only: [:new, :create, :index, :show, :edit, :update, :destroy]
