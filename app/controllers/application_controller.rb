@@ -6,7 +6,6 @@ class ApplicationController < ActionController::Base
     end
 
     def logged_in?
-        # binding.pry
         !!current_groomer
     end
 

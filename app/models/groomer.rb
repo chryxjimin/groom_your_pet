@@ -7,7 +7,7 @@ class Groomer < ApplicationRecord
     validates :password_digest, presence: true, uniqueness: true
 
     def self.find_or_create_from_auth_hash(auth_hash)
-        binding.pry
+        # binding.pry
         @groomer = Groomer.find_by(username: auth_hash.uid)
 
         if @groomer

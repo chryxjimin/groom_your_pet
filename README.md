@@ -1,24 +1,33 @@
-# README
+# Groom Your Pet!
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Groom Your Pet! is a Rails library for groomers who have to make appointments for customers.
 
-Things you may want to cover:
+## Installation
 
-* Ruby version
+Add this line to your application's Gemfile:
 
-* System dependencies
+```rails
+gem 'groom_your_pet'
+```
 
-* Configuration
+And then execute:
 
-* Database creation
+    $ bundle
 
-* Database initialization
+Or install it yourself as:
 
-* How to run the test suite
+    $ gem install groom_your_pet
 
-* Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
+## Usage
 
-* ...
+
+## Contributing
+
+Bug Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+
+Please make sure to update tests as appropriate.
+
+## License
+
+The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).

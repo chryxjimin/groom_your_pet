@@ -1,7 +1,6 @@
 class AppointmentsController < ApplicationController
 
     def new
-        # binding.pry
         if current_groomer
             @groomer = Groomer.find(params[:groomer_id])
             @appointment = @groomer.appointments.build
@@ -13,7 +12,6 @@ class AppointmentsController < ApplicationController
     def create
         @groomer = Groomer.find(params[:groomer_id])
         @appointment = Appointment.new(appointment_params)
-        # binding.pry
         if current_groomer.id == @groomer.id
             @appointment.save
             @groomer = Groomer.find(params[:groomer_id])
@@ -30,7 +28,6 @@ class AppointmentsController < ApplicationController
     end
 
     def index
-        # binding.pry
         if current_groomer
             @groomer = Groomer.find(params[:groomer_id])
             @appointments = Appointment.all.sort_by {|app| app.time}
