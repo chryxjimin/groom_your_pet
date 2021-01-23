@@ -1,8 +1,8 @@
 class CreateAppointments < ActiveRecord::Migration[6.0]
   def change
     create_table :appointments do |t|
-      t.datetime :date
-      t.datetime :time
+      t.date :date
+      t.time :time
       t.boolean :vaccination_records, default: false
       t.string :haircut_type
       t.integer :pet_id

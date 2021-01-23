@@ -13,8 +13,8 @@
 ActiveRecord::Schema.define(version: 2021_01_21_163248) do
 
   create_table "appointments", force: :cascade do |t|
-    t.datetime "date"
-    t.datetime "time"
+    t.date "date"
+    t.time "time"
     t.boolean "vaccination_records", default: false
     t.string "haircut_type"
     t.integer "pet_id"
