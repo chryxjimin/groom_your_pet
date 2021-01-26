@@ -8,12 +8,12 @@ class Groomer < ApplicationRecord
 
     def self.find_or_create_from_auth_hash(auth_hash)
         # binding.pry
-        @groomer = Groomer.find_by(username: auth_hash.uid)
+        @groomer = Groomer.find_by(username: auth_hash[:info][:nickname])
 
         if @groomer
             @groomer
         else
-            @groomer = Groomer.create(username: auth_hash.uid, password: SecureRandom.hex)
+            @groomer = Groomer.create(username: auth_hash[:info][:nickname], password: SecureRandom.hex)
         end
     end
    
