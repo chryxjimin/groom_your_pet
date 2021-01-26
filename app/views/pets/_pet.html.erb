@@ -2,10 +2,10 @@
   <%= f.label :name %>
   <%= f.text_field :name %></br>
   <%= f.label :age %>
-  <%= f.number_field :age %></br>
+  <%= f.number_field :age, within: 1...30 %></br>
   <%= f.label :breed %>
   <%= f.text_field :breed %></br>
   <%= f.label :weight %>
-  <%= f.number_field :weight %></br>
+  <%= f.number_field :weight, within: 1...200 %></br>
   <%= f.submit %>
 <% end %>
