@@ -18,3 +18,7 @@ class Groomer < ApplicationRecord
     end
    
 end
+
+#find_or_create_by
+#DRY before_action for other controllers
+#make the appointments not nested

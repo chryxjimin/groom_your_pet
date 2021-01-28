@@ -5,9 +5,9 @@ Rails.application.routes.draw do
     resources :pets
   end
   
-  resources :groomers do
-    resources :appointments, only: [:new, :create, :index, :show, :edit, :update, :destroy]
-  end
+  resources :groomers 
+
+  resources :appointments, only: [:new, :create, :index, :show, :edit, :update, :destroy]
 
   get '/register', to: 'sessions#register'
   post '/register', to: 'sessions#registered'

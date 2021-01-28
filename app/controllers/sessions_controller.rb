@@ -1,6 +1,6 @@
 require 'pry'
 class SessionsController < ApplicationController
-
+    # before_action :new_groomer, only: [:register, :registered, :login]
 
     def home
     end
@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
 
     def registered
         # binding.pry
-        @groomer = Groomer.create(strong_params)
+        @groomer = Groomer.new(strong_params)
         if @groomer.save
             session[:groomer_id] = @groomer.id
             redirect_to groomer_path(@groomer)
@@ -34,6 +34,7 @@ class SessionsController < ApplicationController
             @groomer = Groomer.find_by(username: params[:groomer][:username])
 
             if @groomer && @groomer.authenticate(strong_params[:password])
+                @appointments = @groomer.appointments.from_today
                 session[:groomer_id] = @groomer.id
                 render :success
             else
@@ -49,12 +50,17 @@ class SessionsController < ApplicationController
     end
 
     private
-    def strong_params
-        params.require(:groomer).permit(:username, :password)
-    end
 
-    def auth_hash
-        request.env['omniauth.auth']
-    end
+        # def new_groomer
+        #     @groomer = Groomer.new(strong_params)
+        # end
+        
+        def strong_params
+            params.require(:groomer).permit(:username, :password)
+        end
+
+        def auth_hash
+            request.env['omniauth.auth']
+        end
 end
   

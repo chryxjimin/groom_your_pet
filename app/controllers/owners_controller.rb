@@ -1,11 +1,13 @@
 class OwnersController < ApplicationController
+
+
     def new
         @owner = Owner.new
     end
 
     def create
-        @owner = Owner.create(owner_params)
-        if @owner.save
+        @owner = Owner.new(owner_params)
+        if @owner.saveå
             redirect_to owner_path(@owner)
         else
             redirect_to new_owner_path

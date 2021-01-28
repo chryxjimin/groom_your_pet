@@ -70,8 +70,12 @@ many_to_many? pets have many appointments through pet groomers
 Validations
 
 
-Need to add:
-edit the weight select to not have negative
-fix the groomers controller to not allow the user to change the groomer id in the URL
-scoping method -- where method
-omniauth setup -- check if it works
+
+
+
+Things to work on:
+refactor appointments to not nest when using current_groomer
+DRY code with before_action
+fix time to be in order
+
+DUE BY FRIDAY

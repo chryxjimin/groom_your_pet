@@ -2,12 +2,12 @@
 
 
 <%= link_to "New Customer", new_owner_path %></br>
-<%= link_to "Returning Customer", new_groomer_appointment_path %>
+<%= link_to "Returning Customer", new_appointment_path %>
     <%= month_calendar events: @appointments do |date, appointments| %>
     <%= date.day %>
     <% appointments.each do |app| %>
         <div>
-            <%= link_to app.time.strftime("%l:%M %p"), groomer_appointment_path(@groomer, app) %>
+            <%= link_to app.time.strftime("%l:%M %p"), appointment_path(app) %>
         </div>
     <% end %>
 

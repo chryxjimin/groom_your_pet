@@ -6,7 +6,7 @@ Haircut: <%= @appointment.haircut_type %></br>
 Appointment made by: <%= @appointment.groomer_name %></br>
 </br>
 <%= link_to @owner.name, owner_path(@owner) %></br>
-<%= link_to 'Edit', edit_groomer_appointment_path %></br>
+<%= link_to 'Edit', edit_appointment_path %></br>
 <%= link_to 'Delete',url_for(action: :destroy, id: @appointment.id),method: :delete, data: {confirm: "Are you sure?"} %>
 
 

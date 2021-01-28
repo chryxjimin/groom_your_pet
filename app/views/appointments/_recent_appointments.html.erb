@@ -1,0 +1,4 @@
+<% @appointments.each do |app| %>
+    Appointment for <%= app.pet_name %></br>
+    At <%= app.time.strftime("%l:%M %p") %></br>
+<% end %>

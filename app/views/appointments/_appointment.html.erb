@@ -1,4 +1,4 @@
-<%= form_for([@groomer, @appointment]) do |f| %>
+<%= form_for(@appointment) do |f| %>
   <%= f.label :date %>
   <%= f.date_field :date %></br>
   <%= f.label :time %>
@@ -9,7 +9,8 @@
   <%= f.text_field :haircut_type %></br>
   <%= f.label :pet_name %> 
   <%= f.collection_select :pet_name, Pet.all, :name, :name %></br>
-  <%= f.label :groomer_name %> 
-  <%= f.text_field :groomer_name %></br>
+  <%= f.hidden_field :groomer_id, value: current_groomer.id%>
   <%= f.submit %>
 <% end %>
+
+Groomer:  <%= current_groomer.username %></br>

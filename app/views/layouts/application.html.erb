@@ -12,11 +12,11 @@
   <body>
     <%= yield %>
     <% if logged_in? %>
-      <%= link_to "Calendar", groomer_appointments_path(current_groomer) %></br>
+      <%= link_to "Calendar", appointments_path %></br>
       <%= link_to "Logout", logout_path, method: 'delete' %></br>
     <% else %>
       <%= link_to "Register", register_path %></br>
-      <%= link_to "Sign Up With Github", '/auth/github' %></br>
+      <%= link_to "Sign In/Sign Up With Github", '/auth/github' %></br>
       <%= link_to "Login", login_path %></br>
     <% end %>
 

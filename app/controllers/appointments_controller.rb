@@ -2,23 +2,23 @@ class AppointmentsController < ApplicationController
 
     def new
         if current_groomer
-            @groomer = Groomer.find(params[:groomer_id])
-            @appointment = @groomer.appointments.build
+            # @groomer = Groomer.find(params[:groomer_id])
+            # @appointment = @groomer.appointments.build
+            @appointment = Appointment.new
         else
             redirect_to login_path
         end
     end
 
     def create
-        @groomer = Groomer.find(params[:groomer_id])
+        # binding.pry
+        # @groomer = Groomer.find(params[:groomer_id])
         @appointment = Appointment.new(appointment_params)
-        if current_groomer.id == @groomer.id
-            @appointment.save
-            @groomer = Groomer.find(params[:groomer_id])
-            redirect_to groomer_appointment_path(@groomer, @appointment)
+        if @appointment.save
+            redirect_to appointment_path(@appointment)
         else 
             flash[:error] = "Error. Please try again."
-            redirect_to new_groomer_appointment_path
+            redirect_to new_appointment_path
         end
     end
 
@@ -29,7 +29,7 @@ class AppointmentsController < ApplicationController
 
     def index
         if current_groomer
-            @groomer = Groomer.find(params[:groomer_id])
+            # @groomer = Groomer.find(params[:groomer_id])
             @appointments = Appointment.all.sort_by {|app| app.time}
         else
             redirect_to login_path
@@ -38,7 +38,7 @@ class AppointmentsController < ApplicationController
 
     def edit
         if current_groomer
-            @groomer = Groomer.find(params[:groomer_id])
+            # @groomer = Groomer.find(params[:groomer_id])
             @appointment = Appointment.find(params[:id])
         else
             redirect_to login_path
@@ -48,13 +48,13 @@ class AppointmentsController < ApplicationController
     def update
         @appointment =Appointment.find(params[:id])
         @appointment.update(appointment_params)
-        redirect_to groomer_appointment_path(@appointment)
+        redirect_to appointment_path(@appointment)
     end
 
     def destroy
         @appointment = Appointment.find(params[:id])
         @appointment.destroy
-        redirect_to groomer_appointments_path
+        redirect_to appointments_path
     end
 
     private
