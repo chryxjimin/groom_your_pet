@@ -1,18 +1,12 @@
 class AppointmentsController < ApplicationController
+    before_action :load_appointment, only: [:show, :edit, :update, :destroy]
+    before_action :ensure_current_groomer, only: [:new, :index, :edit]
 
     def new
-        if current_groomer
-            # @groomer = Groomer.find(params[:groomer_id])
-            # @appointment = @groomer.appointments.build
-            @appointment = Appointment.new
-        else
-            redirect_to login_path
-        end
+        @appointment = Appointment.new
     end
 
     def create
-        # binding.pry
-        # @groomer = Groomer.find(params[:groomer_id])
         @appointment = Appointment.new(appointment_params)
         if @appointment.save
             redirect_to appointment_path(@appointment)
@@ -23,41 +17,37 @@ class AppointmentsController < ApplicationController
     end
 
     def show
-        @appointment = Appointment.find(params[:id])
         @owner = @appointment.pet.owner
     end
 
     def index
-        if current_groomer
-            # @groomer = Groomer.find(params[:groomer_id])
-            @appointments = Appointment.all.sort_by {|app| app.time}
-        else
-            redirect_to login_path
-        end
+        @appointments = Appointment.all.sort_by {|app| app.time}
     end
 
     def edit
-        if current_groomer
-            # @groomer = Groomer.find(params[:groomer_id])
-            @appointment = Appointment.find(params[:id])
-        else
-            redirect_to login_path
-        end
+
     end
 
     def update
-        @appointment =Appointment.find(params[:id])
         @appointment.update(appointment_params)
         redirect_to appointment_path(@appointment)
     end
 
     def destroy
-        @appointment = Appointment.find(params[:id])
         @appointment.destroy
         redirect_to appointments_path
     end
 
     private
+
+        def load_appointment
+            @appointment =Appointment.find(params[:id])
+        end
+
+        def ensure_current_groomer
+            redirect to login_path unless current_groomer
+        end
+
         def appointment_params
             params.require(:appointment).permit(:time, :date, :vaccination_records, :haircut_type, :pet_name, :groomer_name, :groomer_id)
         end
