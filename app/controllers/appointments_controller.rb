@@ -45,7 +45,7 @@ class AppointmentsController < ApplicationController
         end
 
         def ensure_current_groomer
-            redirect to login_path unless current_groomer
+            redirect_to login_path unless logged_in?
         end
 
         def appointment_params

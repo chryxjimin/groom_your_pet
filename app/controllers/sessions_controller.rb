@@ -1,6 +1,6 @@
 require 'pry'
 class SessionsController < ApplicationController
-    # before_action :new_groomer, only: [:register, :registered, :login]
+
 
     def home
     end
@@ -10,7 +10,6 @@ class SessionsController < ApplicationController
     end
 
     def registered
-        # binding.pry
         @groomer = Groomer.new(strong_params)
         if @groomer.save
             session[:groomer_id] = @groomer.id
@@ -50,10 +49,6 @@ class SessionsController < ApplicationController
     end
 
     private
-
-        # def new_groomer
-        #     @groomer = Groomer.new(strong_params)
-        # end
         
         def strong_params
             params.require(:groomer).permit(:username, :password)

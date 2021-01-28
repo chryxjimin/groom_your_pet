@@ -7,7 +7,6 @@ class PetsController < ApplicationController
     end
 
     def create
-        # binding.pry
         @pet = @owner.pets.build(pet_params)
         if @pet.save
             @owner = Owner.find(params[:owner_id])
@@ -27,7 +26,6 @@ class PetsController < ApplicationController
     end
 
     def edit
-        # binding.pry
         @pet = Pet.find(params[:id])
     end
 

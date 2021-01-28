@@ -74,9 +74,9 @@ Validations
 
 
 Things to work on:
-refactor appointments to not nest when using current_groomer
-DRY code with before_action
 
 DUE BY FRIDAY
 
 added the scope method to show the current day's appointments for the current_groomer on the sessions#success view route once the user logs in 
+refactor appointments to not nest when using current_groomer
+DRY code with before_action
