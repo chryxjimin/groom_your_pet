@@ -28,7 +28,8 @@ class SessionsController < ApplicationController
         if auth_hash != nil
             @groomer = Groomer.find_or_create_from_auth_hash(auth_hash)
             session[:groomer_id] = @groomer.id
-            redirect_to groomer_appointments_path(@groomer)
+            @appointments = @groomer.appointments.from_today
+            render :success
         else
             @groomer = Groomer.find_by(username: params[:groomer][:username])
 
@@ -49,6 +50,7 @@ class SessionsController < ApplicationController
     end
 
     private
+
         
         def strong_params
             params.require(:groomer).permit(:username, :password)

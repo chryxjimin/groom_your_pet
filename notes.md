@@ -75,6 +75,7 @@ Validations
 
 Things to work on:
 
+
 DUE BY FRIDAY
 
 added the scope method to show the current day's appointments for the current_groomer on the sessions#success view route once the user logs in 

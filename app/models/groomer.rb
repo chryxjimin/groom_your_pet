@@ -20,5 +20,4 @@ class Groomer < ApplicationRecord
 end
 
 #find_or_create_by
-#DRY before_action for other controllers
-#make the appointments not nested
+# @groomer = Groomer.find_or_create_by(username: auth_hash[:info][:nickname], password_digest: SecureRandom.hex)
