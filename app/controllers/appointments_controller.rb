@@ -41,7 +41,7 @@ class AppointmentsController < ApplicationController
     private
 
         def load_appointment
-            @appointment =Appointment.find(params[:id])
+            @appointment = Appointment.find(params[:id])
         end
 
         def ensure_current_groomer

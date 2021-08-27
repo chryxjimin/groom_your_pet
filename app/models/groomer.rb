@@ -7,7 +7,6 @@ class Groomer < ApplicationRecord
     validates :password_digest, presence: true, uniqueness: true
 
     def self.find_or_create_from_auth_hash(auth_hash)
-        # binding.pry
         @groomer = Groomer.find_by(username: auth_hash[:info][:nickname])
 
         if @groomer
@@ -18,6 +17,3 @@ class Groomer < ApplicationRecord
     end
    
 end
-
-#find_or_create_by
-# @groomer = Groomer.find_or_create_by(username: auth_hash[:info][:nickname], password_digest: SecureRandom.hex)
